@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="id">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>Silsilah Trah</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=Work+Sans:wght@400;600&display=swap" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Silsilah Trah</h1>
+			<p>Petakan kerabat dari data orang tua dan anak, lalu lacak leluhur dan hubungannya.</p>
+		</header>
+		<main>
+			<section class="panel" id="left">
+				<h2>Tambah orang</h2>
+				<label for="fn">Nama</label><input id="fn" /> <label for="fg">Jenis kelamin</label
+				><select id="fg">
+					<option value="L">Laki-laki</option>
+					<option value="P">Perempuan</option>
+				</select>
+				<label for="fy">Tahun lahir (opsional)</label><input id="fy" type="number" min="1500" max="2100" /> <label for="fa">Ayah</label
+				><select id="fa"></select>
+				<label for="fi">Ibu</label
+				><select id="fi"></select>
+				<button onclick="addPerson()">Tambah orang</button>
+				<hr />
+				<h2>Cari hubungan</h2>
+				<label for="ra">Orang A</label
+				><select id="ra"></select>
+				<label for="rb">Orang B</label
+				><select id="rb"></select>
+				<button onclick="findRel()">Cari hubungan</button>
+				<hr />
+				<h2>Tampilan</h2>
+				<label for="ff">Fokus ke</label
+				><select id="ff" onchange="pick(+this.value)"></select>
+				<div class="seg">
+					<label><input type="radio" name="m" value="up" checked onchange="setMode(this.value)" />Leluhur</label
+					><label><input type="radio" name="m" value="down" onchange="setMode(this.value)" />Keturunan</label>
+				</div>
+				<hr />
+				<h2>Data</h2>
+				<textarea id="json" aria-label="Data JSON"></textarea>
+				<button class="alt" onclick="exportJSON()">Tampilkan JSON</button>
+				<button class="alt" onclick="importJSON()">Muat dari JSON</button>
+				<button class="alt" onclick="resetSample()">Pakai data contoh</button>
+			</section>
+			<section class="panel" id="gwrap">
+				<p id="msg" role="status"></p>
+				<div id="graph"></div>
+			</section>
+			<section class="panel" id="right"><div id="info"></div></section>
+		</main>
+		<script src="data.js"></script>
+		<script src="algo.js"></script>
+		<script src="render.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
