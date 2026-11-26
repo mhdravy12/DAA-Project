@@ -17,7 +17,7 @@ const SAMPLE = [
 	[15, "Dewi", "P", 1982, 11, 16],
 	[16, "Lastri", "P", 1957],
 	[17, "Agus", "L", 1979, null, 12],
-].map((r) => ({ id: r[0], nama: r[1], gender: r[2], tahun: 2026 - r[3] || null, ayah: r[4] || null, ibu: r[5] || null }));
+].map((r) => ({ id: r[0], nama: r[1], gender: r[2], tahun: r[3] || null, ayah: r[4] || null, ibu: r[5] || null }));
 let people = SAMPLE.map((p) => ({ ...p })),
 	P = {},
 	par = {},

@@ -68,7 +68,8 @@ function chain(prev, from, top) {
   return out;
 }
 
-// Leluhur bersama terdekat (LCA pada DAG) = irisan hasil BFS dari A dan B dengan jumlah jarak terkecil
+// Leluhur bersama terdekat: leluhur bersama dengan jumlah jarak terpendek minimum.
+// Kompleksitas O(V+E): dua BFS dan dua pemindaian linear atas leluhur yang terjangkau.
 function relation(a, b) {
   const A = bfs([a], par), B = bfs([b], par);
   let sum = Infinity;
